@@ -7,26 +7,21 @@ Hooks.once("ready", () => {
           const actor = token.actor;
           if (!actor) continue;
   
-          let rollFunc;
-  
-          if (skill === "perception") {
-            rollFunc = actor.system.attributes.perception?.roll;
-          } else if (["fortitude", "reflex", "will"].includes(skill)) {
-            rollFunc = actor.system.saves[skill]?.roll;
-          } else {
-            rollFunc = actor.system.skills[skill]?.roll;
-          }
-  
-          if (typeof rollFunc !== "function") {
+          try {
+            if (skill === "perception") {
+              await actor.rollPerception({ secret: true });
+            } else if (["fortitude", "reflex", "will"].includes(skill)) {
+              await actor.rollSave(skill, { secret: true });
+            } else {
+              await actor.rollSkill(skill, { secret: true });
+            }
+          } catch (err) {
             ui.notifications.warn(`${actor.name} kann keinen geheimen Wurf für '${skill}' machen.`);
-            continue;
           }
-  
-          await rollFunc.call(actor, { secret: true });
         }
       }
     };
   
-    console.log("🎲 Secret Roll Helper loaded!");
+    console.log("🎲 Secret Roll Helper fully loaded!");
   });
   
