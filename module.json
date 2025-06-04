@@ -3,10 +3,8 @@
     "name": "roll-helper",
     "title": "Secret Roll Helper",
     "description": "Ein einfacher Secret-Roll-Trigger für PF2e.",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "author": "Daniel & Laura",
-    "minimumCoreVersion": "10",
-    "compatibleCoreVersion": "11",
     "system": ["pf2e"],
     "scripts": ["scripts/main.js"],
     "languages": [
@@ -18,7 +16,10 @@
     ],
     "url": "",
     "manifest": "https://raw.githubusercontent.com/Richie1710/roll-helper/main/module.json",
-    "download": "https://github.com/Richie1710/roll-helper/releases/latest/download/roll-helper.zip"
-
+    "download": "https://github.com/Richie1710/roll-helper/releases/latest/download/roll-helper.zip",
+    "compatibility": {
+        "minimum": "13",
+        "verified": "13"
+    }
 }
   
