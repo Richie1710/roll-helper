@@ -7,13 +7,22 @@ Hooks.once("ready", () => {
           const actor = token.actor;
           if (!actor) continue;
   
-          const rollData = actor.system.skills?.[skill] ?? actor.system?.[skill];
-          if (!rollData || !rollData.roll) {
+          let rollFunc;
+  
+          if (skill === "perception") {
+            rollFunc = actor.system.attributes.perception?.roll;
+          } else if (["fortitude", "reflex", "will"].includes(skill)) {
+            rollFunc = actor.system.saves[skill]?.roll;
+          } else {
+            rollFunc = actor.system.skills[skill]?.roll;
+          }
+  
+          if (typeof rollFunc !== "function") {
             ui.notifications.warn(`${actor.name} kann keinen geheimen Wurf für '${skill}' machen.`);
             continue;
           }
   
-          await rollData.roll({ secret: true });
+          await rollFunc.call(actor, { secret: true });
         }
       }
     };
