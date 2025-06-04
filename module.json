@@ -1,0 +1,22 @@
+{
+    "name": "roll-helper",
+    "title": "Secret Roll Helper",
+    "description": "Ein einfacher Secret-Roll-Trigger für PF2e.",
+    "version": "1.0.0",
+    "author": "Daniel & Laura",
+    "minimumCoreVersion": "10",
+    "compatibleCoreVersion": "11",
+    "system": ["pf2e"],
+    "scripts": ["scripts/main.js"],
+    "languages": [
+      {
+        "lang": "de",
+        "name": "Deutsch",
+        "path": "lang/de.json"
+      }
+    ],
+    "url": "",
+    "manifest": "",
+    "download": ""
+  }
+  
