@@ -17,7 +17,8 @@
       }
     ],
     "url": "",
-    "manifest": "",
-    "download": ""
+    "manifest": "https://raw.githubusercontent.com/Richie1710/roll-helper/main/module.json",
+    "download": "https://github.com/Richie1710/roll-helper/releases/latest/download/roll-helper.zip"
+
 }
   
