@@ -1,0 +1,24 @@
+name: Release Module
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Create ZIP
+        run: |
+          zip -r roll-helper.zip module.json scripts lang
+
+      - name: Upload Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: roll-helper.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
