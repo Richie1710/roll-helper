@@ -3,7 +3,7 @@
     "name": "roll-helper",
     "title": "Secret Roll Helper",
     "description": "Ein einfacher Secret-Roll-Trigger für PF2e.",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "author": "Daniel & Laura",
     "system": ["pf2e"],
     "scripts": ["scripts/main.js"],
